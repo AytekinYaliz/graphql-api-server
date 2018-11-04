@@ -7,7 +7,7 @@ function getAll(req, res, next) {
 }
 
 function getOne(req, res, next) {
-   console.log( 'hit /customer/:id' )
+   console.log( 'hit /customers/:id' )
 
    const id = req.params.id;
 

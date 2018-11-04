@@ -1,14 +1,28 @@
-const customers = require('./db/customers.json')
+const customers = require("./db/customers.json");
 
 function getAll() {
-   return customers
+  console.log("Customer Repository - getAll");
+
+  return customers;
 }
 
 function getOne(id) {
-   return customers.find( c => c.id === Number(id) )
+  console.log("Customer Repository - getOne", id);
+
+  return customers.find(c => c.id === Number(id));
+}
+function create(customer) {
+  console.log("Customer Repository - create", JSON.stringify(customer));
+
+  customer.id = customers.length + 1;
+
+  customers.push(customer);
+
+  return getOne(customer.id);
 }
 
 module.exports = {
-   getAll,
-   getOne
-}
+  getAll,
+  getOne,
+  create
+};
